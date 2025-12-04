@@ -2,6 +2,8 @@
 
 ![Windows](https://img.shields.io/badge/Windows-10%2F11-blue?style=flat-square&logo=windows) ![Security](https://img.shields.io/badge/Security-Hardening-green?style=flat-square) ![Powershell](https://img.shields.io/badge/Language-PowerShell-blue?style=flat-square&logo=powershell)
 
+*[🇬🇧 English version below](#-windows-hardening--security)*
+
 En **teknisk guide** och **detaljerad checklista** för att manuellt säkra och härda (harden) en Windows 10/11-miljö. Detta projekt syftar till att minska attackytan på klienter genom beprövade metoder och konfigurationer.
 
 ## 📖 Om Projektet
@@ -65,13 +67,80 @@ Härdning av operativsystem kan ibland påverka funktionaliteten i vissa applika
 * Testa alltid konfigurationerna i en virtuell miljö (VM) eller på en testdator innan du rullar ut det i produktion.
 * Se till att du har en aktuell backup.
 
-## 🤝 Bidra
-Har du förslag på fler säkerhetsåtgärder eller förbättringar av skripten?
-1.  Forka detta repository.
-2.  Skapa en ny branch (`git checkout -b feature/ny-sakerhet`).
-3.  Commit:a dina ändringar.
-4.  Push:a till branchen.
-5.  Öppna en Pull Request.
+---
 
-## 📄 Licens
-Distribueras under MIT License. Se `LICENSE` för mer information.
+# 🛡️ Windows Hardening & Security
+
+A **technical guide** and **detailed checklist** for manually securing and hardening a Windows 10/11 environment. This project aims to reduce the attack surface on clients through proven methods and configurations.
+
+## 📖 About the Project
+
+Securing a Windows environment requires more than just antivirus software. This repository collects "best practices" for operating system configuration to protect against modern threats. The guide covers everything from disk encryption to detailed logging and service hardening.
+
+The project includes both manual instructions and PowerShell scripts for automation.
+
+## 🚀 Contents
+
+This guide covers the following main areas:
+
+### 🔐 1. BitLocker & Physical Security
+* BitLocker configuration (XTS-AES 256-bit).
+* TPM requirements and PIN management.
+* DMA protection (Direct Memory Access).
+
+### 📝 2. Audit Logs & Monitoring
+* Enabling advanced logging (Process Creation, Command Line Auditing).
+* Configuration of log size and retention.
+* Tracking login attempts and privilege escalation.
+
+### ⚙️ 3. Group Policy (GPO)
+* Security policies for passwords and account lockouts.
+* Restriction of administrative privileges.
+* Blocking execution from temporary folders (AppLocker/SRP basics).
+* Disabling telemetry and data collection.
+
+### 🛠️ 4. Service Hardening
+* Disabling unnecessary Windows services (e.g., Xbox Services, Print Spooler if not needed).
+* Network configuration and firewall rules.
+
+## 💻 Getting Started
+
+### Prerequisites
+* **OS:** Windows 10 or Windows 11 (Pro or Enterprise recommended for full GPO support).
+* **Permissions:** Administrative rights are required for most steps.
+
+### Installation / Usage
+
+1.  **Clone the repo:**
+    ```powershell
+    git clone [https://github.com/your-username/windows-hardening.git](https://github.com/your-username/windows-hardening.git)
+    cd windows-hardening
+    ```
+
+2.  **Run manual checklist:**
+    Open `CHECKLIST.md` to go through the steps manually.
+
+3.  **Use PowerShell scripts (Optional):**
+    > **Warning:** Always review scripts before running them in your environment.
+    ```powershell
+    # Example of running the hardening script
+    .\scripts\harden-windows.ps1
+    ```
+
+## ⚠️ Disclaimer
+
+**Use at your own risk.**
+System hardening can sometimes affect the functionality of certain applications or system features.
+* Always test configurations in a virtual environment (VM) or on a test machine before rolling out to production.
+* Ensure you have a current backup.
+
+## 🤝 Contributing
+Do you have suggestions for more security measures or improvements to the scripts?
+1.  Fork this repository.
+2.  Create a new branch (`git checkout -b feature/new-security`).
+3.  Commit your changes.
+4.  Push to the branch.
+5.  Open a Pull Request.
+
+## 📄 License
+Distributed under the MIT License. See `LICENSE` for more information.
